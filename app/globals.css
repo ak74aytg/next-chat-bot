@@ -1,6 +1,9 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @import "tailwindcss"; */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
 
 :root {
   --background: #ffffff;
@@ -18,4 +21,68 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* styles.css */
+.hidden-mobile {
+  display: none; /* Hide by default */
+}
+
+.bg-white{
+  background-color: #ffffff;
+}
+
+.content-center{
+  justify-content: flex-start;
+}
+
+.borders{
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.leftSide{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+}
+
+.bubble-width{
+  max-width: 70%;
+}
+
+.top-height{
+  height: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+
+@media (min-width: 768px) { /* Adjust the breakpoint as needed */
+  .hidden-mobile {
+      display: block; /* Show on medium screens and larger */
+  }
+
+  .content-center{
+    justify-content:center;
+  }
+
+  .borders{
+    border-bottom-left-radius: 1rem;
+    border-top-right-radius: 0;
+  }
+
+  .leftSide{
+    height: 100vh;
+  }
+
+  .bubble-width{
+    max-width: 50%;
+  }
+  .top-height{
+    height: 3rem;
+    margin-bottom: 0.5rem;
+  }
 }
