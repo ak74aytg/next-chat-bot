@@ -14,7 +14,7 @@ export default function Home() {
     >([]);
     const [input, setInput] = useState<string>("");
     // const [selectedUser, setSelectedUser] = useState<string>("3");
-    const selectedUser = "3";
+    const selectedUser = "1";
     const router = useRouter();
 
     const userId = Number(Cookies.get("userId"));
