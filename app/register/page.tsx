@@ -4,7 +4,6 @@ import { useState } from "react";
 import { registerUser  } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
-import Link from "next/link";
 import LeftHome from '../../component/leftHome';
 import RightRegister from '../../component/rightRegister';
 

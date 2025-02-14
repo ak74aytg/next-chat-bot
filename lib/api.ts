@@ -11,6 +11,15 @@ interface AuthResponse {
   };
 }
 
+interface Message {
+  id: number;
+  text: string;
+  sender: number;
+  receiver: number;
+  documentId: number;
+  timestamp: number;
+}
+
 export const registerUser = async (
   username: string,
   email: string,
@@ -44,6 +53,7 @@ export const loginUser = async (
     console.log(response.data);
     return response.data;
   } catch (error) {
+    console.error("Login failed:", error);
     return null;
   }
 };
@@ -71,24 +81,21 @@ export const fetchChatMessages = async (): Promise<
       },
     });
 
-    console.log(response.data);
-    const arrSet = new Set();
-
-    let messages = [
-      ...response.data.sent.map((msg: any) => ({
+    const messages: Message[] = [
+      ...response.data.sent.map((msg: Message) => ({
         id: msg.id,
         text: msg.text,
         sender: userId,
         receiver: 3,
-        documentId: msg.documentId, // ✅ Keep documentId for filtering duplicates
+        documentId: msg.documentId,
         timestamp: new Date(msg.timestamp).getTime(),
       })),
-      ...response.data.recieved.map((msg: any) => ({
+      ...response.data.recieved.map((msg: Message) => ({
         id: msg.id,
         text: msg.text,
         sender: 3,
         receiver: userId,
-        documentId: msg.documentId, // ✅ Keep documentId for filtering duplicates
+        documentId: msg.documentId,
         timestamp: new Date(msg.timestamp).getTime(),
       })),
     ];

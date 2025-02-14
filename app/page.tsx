@@ -13,11 +13,11 @@ export default function Home() {
         { id: number; text: string; sender: number; receiver: number; timestamp: number }[]
     >([]);
     const [input, setInput] = useState<string>("");
-    const [selectedUser, setSelectedUser] = useState<string>("3");
+    // const [selectedUser, setSelectedUser] = useState<string>("3");
+    const selectedUser = "3";
     const router = useRouter();
 
     const userId = Number(Cookies.get("userId"));
-    const serverUserId = 3;
 
     useEffect(() => {
         if (!Cookies.get("jwt")) {
