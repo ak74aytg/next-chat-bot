@@ -1,5 +1,5 @@
 import { io, Socket } from "socket.io-client";
 
-const socket: Socket = io("http://localhost:1337", { transports: ["websocket"] });
+const socket: Socket = io(process.env.SOCKET_API_URL, { transports: ["websocket", "polling"] });
 
 export default socket;
